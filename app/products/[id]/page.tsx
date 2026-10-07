@@ -18,7 +18,6 @@ import {
 import { useParams } from "next/navigation";
 
 import {
-  getProductById,
   formatQuantity,
   getProductPrice,
   getProductOldPrice,
@@ -134,12 +133,15 @@ function getDefaultQuantity(
 
   /*
    * KG products:
-   * Start from 1kg.
+   * Start from 1kg when possible.
    */
   if (product.unit === "kg") {
-    return Math.max(
-      product.minQuantity,
-      1000
+    return Math.min(
+      Math.max(
+        product.minQuantity,
+        1000
+      ),
+      product.maxQuantity
     );
   }
 
@@ -155,15 +157,6 @@ function getQuantityLabel(
   product: Product,
   quantity: number
 ): string {
-
-  if (
-    product.quantityOptions?.length
-  ) {
-    return formatQuantity(
-      quantity,
-      product.unit
-    );
-  }
 
   return formatQuantity(
     quantity,
@@ -217,8 +210,14 @@ export default function ProductDetailsPage() {
     params.id
   );
 
+  /*
+   * Product is now found directly from
+   * the new products array.
+   */
   const product =
-    getProductById(productId);
+    products.find(
+      (item) => item.id === productId
+    );
 
 
   /* =======================================================
@@ -234,7 +233,9 @@ export default function ProductDetailsPage() {
 
   const [selectedImage, setSelectedImage] =
     useState<string>(
-      product?.image ?? ""
+      product?.primaryImage ??
+      product?.image ??
+      ""
     );
 
   const [isWishlisted, setIsWishlisted] =
@@ -262,6 +263,7 @@ export default function ProductDetailsPage() {
     );
 
     setSelectedImage(
+      product.primaryImage ??
       product.image
     );
 
@@ -365,15 +367,30 @@ export default function ProductDetailsPage() {
     currentOldPrice > currentPrice;
 
 
+  const discountPercentage =
+    hasDiscount
+      ? Math.round(
+          (
+            (currentOldPrice! -
+              currentPrice) /
+            currentOldPrice!
+          ) * 100
+        )
+      : 0;
+
+
   /* =======================================================
      IMAGES
   ======================================================= */
 
-  const productImages =
+  const productImages: string[] =
     product.images &&
     product.images.length > 0
       ? product.images
-      : [product.image];
+      : [
+          product.primaryImage ??
+          product.image,
+        ];
 
 
   /* =======================================================
@@ -479,7 +496,8 @@ export default function ProductDetailsPage() {
         (item) =>
           item.category ===
             product.category &&
-          item.id !== product.id
+          item.id !== product.id &&
+          item.status === "active"
       )
       .slice(0, 4);
 
@@ -598,7 +616,7 @@ export default function ProductDetailsPage() {
             <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
 
               {productImages.map(
-                (image, index) => (
+                (image: string, index: number) => (
 
                   <button
                     key={`${image}-${index}`}
@@ -652,6 +670,13 @@ export default function ProductDetailsPage() {
           <h2 className="mt-1 text-[23px] font-semibold leading-tight text-[#17211b]">
             {product.name}
           </h2>
+
+
+          {/* Short Text */}
+
+          <p className="mt-2 text-sm leading-6 text-gray-500">
+            {product.shortText}
+          </p>
 
 
           {/* Rating */}
@@ -725,7 +750,7 @@ export default function ProductDetailsPage() {
               <div className="mt-4 grid grid-cols-3 gap-2">
 
                 {productExtra.quantityOptions?.map(
-                  (option) => {
+                  (option: number) => {
 
                     const isSelected =
                       quantity === option;
@@ -799,7 +824,8 @@ export default function ProductDetailsPage() {
                   </p>
 
                   <p className="mt-1 text-xs text-gray-500">
-                    Minimum {formatQuantity(
+                    Minimum{" "}
+                    {formatQuantity(
                       product.minQuantity,
                       product.unit
                     )}
@@ -831,6 +857,7 @@ export default function ProductDetailsPage() {
                     value={quantity}
                     min={product.minQuantity}
                     max={product.maxQuantity}
+                    step={product.step}
                     onChange={(event) =>
                       handleManualQuantityChange(
                         event.target.value
@@ -925,6 +952,12 @@ export default function ProductDetailsPage() {
                   : product.unit ===
                     "packet"
                   ? "per packet"
+                  : product.unit ===
+                    "gram"
+                  ? "per gram"
+                  : product.unit ===
+                    "piece"
+                  ? "per piece"
                   : ""}
               </p>
 
@@ -937,9 +970,40 @@ export default function ProductDetailsPage() {
 
           {hasDiscount && (
             <div className="mt-2 inline-flex rounded-full bg-[#e07a24]/10 px-3 py-1 text-xs font-semibold text-[#e07a24]">
-              {product.discount}
+              {discountPercentage}% OFF
             </div>
           )}
+
+        </section>
+
+
+        {/* =================================================
+            STOCK INFORMATION
+        ================================================= */}
+
+        <section className="px-4 pt-4">
+
+          <div className="flex items-center justify-between rounded-xl bg-white px-4 py-3">
+
+            <span className="text-xs text-gray-500">
+              Availability
+            </span>
+
+            <span
+              className={`text-xs font-semibold ${
+                product.stock > 0 &&
+                product.status === "active"
+                  ? "text-[#356a47]"
+                  : "text-red-500"
+              }`}
+            >
+              {product.stock > 0 &&
+              product.status === "active"
+                ? "In Stock"
+                : "Out of Stock"}
+            </span>
+
+          </div>
 
         </section>
 
@@ -955,11 +1019,15 @@ export default function ProductDetailsPage() {
             onClick={
               handleAddToCart
             }
+            disabled={
+              product.stock <= 0 ||
+              product.status !== "active"
+            }
             className={`flex h-[54px] w-full items-center justify-center gap-2 rounded-2xl text-sm font-semibold text-white shadow-sm transition ${
               addedToCart
                 ? "bg-[#356a47]"
                 : "bg-[#17211b]"
-            }`}
+            } disabled:cursor-not-allowed disabled:opacity-40`}
           >
 
             {addedToCart ? (
@@ -1133,8 +1201,7 @@ export default function ProductDetailsPage() {
                 </p>
 
                 <p className="mt-1 text-xs leading-5 text-gray-500">
-                  {productExtra.returnNote ??
-                    "Product return policy applies according to shop terms."}
+                  {product.returnPolicy}
                 </p>
 
               </div>
@@ -1292,6 +1359,7 @@ export default function ProductDetailsPage() {
 
                       <Image
                         src={
+                          relatedProduct.primaryImage ??
                           relatedProduct.image
                         }
                         alt={

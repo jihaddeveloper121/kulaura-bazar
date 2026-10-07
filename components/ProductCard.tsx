@@ -19,6 +19,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const [imageError, setImageError] = useState(false);
 
   const currentPrice = getProductPrice(product);
+  const testProductType = product.productType;
   const oldPrice = getProductOldPrice(product);
 
   const discount =
