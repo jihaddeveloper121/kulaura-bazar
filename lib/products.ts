@@ -98,9 +98,11 @@ export const products: Product[] = [
     section: "Cooking Essentials",
     productType: "Garlic",
     brand: "Local",
-    image: "/products/garlic.jpg",
-    images: ["/products/garlic.jpg"],
-    primaryImage: "/products/garlic.jpg",
+
+    image: "/garlic.jpg",
+    images: ["/garlic.jpg"],
+    primaryImage: "/garlic.jpg",
+
     price: 180,
     oldPrice: 200,
     unit: "kg",
@@ -111,8 +113,10 @@ export const products: Product[] = [
     stock: 100,
     verified: true,
     status: "active",
+
     description:
       "Fresh local garlic suitable for everyday cooking. Carefully selected for good quality and freshness.",
+
     keywords: [
       "garlic",
       "rosun",
@@ -120,11 +124,14 @@ export const products: Product[] = [
       "fresh garlic",
       "cooking garlic",
     ],
+
     returnPolicy:
       "Fresh condition e delivery pawar 24 hours er moddhe return kora jabe.",
+
     monthlyBazar: true,
     discountProduct: true,
     suggestedProduct: true,
+
     searchTerms: [
       "garlic",
       "rosun",
@@ -141,9 +148,11 @@ export const products: Product[] = [
     section: "Cooking Essentials",
     productType: "Oil",
     brand: "Teer",
-    image: "/products/teer-oil.jpg",
-    images: ["/products/teer-oil.jpg"],
-    primaryImage: "/products/teer-oil.jpg",
+
+    image: "/oil-5-liter.jpg",
+    images: ["/oil-5-liter.jpg"],
+    primaryImage: "/oil-5-liter.jpg",
+
     price: 890,
     oldPrice: 950,
     unit: "liter",
@@ -154,8 +163,10 @@ export const products: Product[] = [
     stock: 50,
     verified: true,
     status: "active",
+
     description:
       "Teer Advanced Soybean Oil is suitable for regular household cooking and everyday food preparation.",
+
     keywords: [
       "teer oil",
       "soybean oil",
@@ -163,11 +174,14 @@ export const products: Product[] = [
       "তীর তেল",
       "সয়াবিন তেল",
     ],
+
     returnPolicy:
       "Sealed condition e product receive korar por return kora jabe.",
+
     monthlyBazar: true,
     discountProduct: true,
     suggestedProduct: true,
+
     searchTerms: [
       "teer oil",
       "soybean oil",
@@ -185,9 +199,11 @@ export const products: Product[] = [
     section: "Monthly Bazar",
     productType: "Potato",
     brand: "Local",
-    image: "/products/potato.jpg",
-    images: ["/products/potato.jpg"],
-    primaryImage: "/products/potato.jpg",
+
+    image: "/potato.jpg",
+    images: ["/potato.jpg"],
+    primaryImage: "/potato.jpg",
+
     price: 30,
     oldPrice: null,
     unit: "kg",
@@ -198,19 +214,24 @@ export const products: Product[] = [
     stock: 150,
     verified: true,
     status: "active",
+
     description:
       "Fresh local potatoes suitable for regular household cooking.",
+
     keywords: [
       "potato",
       "alu",
       "আলু",
       "fresh potato",
     ],
+
     returnPolicy:
       "Fresh condition e delivery pawar 24 hours er moddhe return kora jabe.",
+
     monthlyBazar: true,
     discountProduct: false,
     suggestedProduct: true,
+
     searchTerms: [
       "potato",
       "alu",
@@ -227,9 +248,11 @@ export const products: Product[] = [
     section: "Monthly Bazar",
     productType: "Onion",
     brand: "Local",
-    image: "/products/onion.jpg",
-    images: ["/products/onion.jpg"],
-    primaryImage: "/products/onion.jpg",
+
+    image: "/onion.jpg",
+    images: ["/onion.jpg"],
+    primaryImage: "/onion.jpg",
+
     price: 60,
     oldPrice: null,
     unit: "kg",
@@ -240,19 +263,24 @@ export const products: Product[] = [
     stock: 150,
     verified: true,
     status: "active",
+
     description:
       "Fresh local onions selected for everyday household cooking.",
+
     keywords: [
       "onion",
       "peyaj",
       "পেঁয়াজ",
       "fresh onion",
     ],
+
     returnPolicy:
       "Fresh condition e delivery pawar 24 hours er moddhe return kora jabe.",
+
     monthlyBazar: true,
     discountProduct: false,
     suggestedProduct: true,
+
     searchTerms: [
       "onion",
       "peyaj",
@@ -269,9 +297,11 @@ export const products: Product[] = [
     section: "Cooking Essentials",
     productType: "Maida",
     brand: "Teer",
-    image: "/products/teer-maida.jpg",
-    images: ["/products/teer-maida.jpg"],
-    primaryImage: "/products/teer-maida.jpg",
+
+    image: "/moyda.jpg",
+    images: ["/moyda.jpg"],
+    primaryImage: "/moyda.jpg",
+
     price: 75,
     oldPrice: null,
     unit: "packet",
@@ -282,8 +312,10 @@ export const products: Product[] = [
     stock: 60,
     verified: true,
     status: "active",
+
     description:
       "Teer Maida is suitable for baking, snacks and everyday cooking needs.",
+
     keywords: [
       "teer maida",
       "maida",
@@ -291,11 +323,14 @@ export const products: Product[] = [
       "flour",
       "teer flour",
     ],
+
     returnPolicy:
       "Sealed condition e product receive korar por return kora jabe.",
+
     monthlyBazar: true,
     discountProduct: false,
     suggestedProduct: true,
+
     searchTerms: [
       "teer maida",
       "maida",
@@ -313,9 +348,11 @@ export const products: Product[] = [
     section: "Cooking Essentials",
     productType: "Atta",
     brand: "Teer",
-    image: "/products/teer-atta.jpg",
-    images: ["/products/teer-atta.jpg"],
-    primaryImage: "/products/teer-atta.jpg",
+
+    image: "/atta.jpg",
+    images: ["/atta.jpg"],
+    primaryImage: "/atta.jpg",
+
     price: 65,
     oldPrice: null,
     unit: "packet",
@@ -326,8 +363,10 @@ export const products: Product[] = [
     stock: 60,
     verified: true,
     status: "active",
+
     description:
       "Teer Atta is suitable for roti, paratha and regular household cooking.",
+
     keywords: [
       "teer atta",
       "atta",
@@ -335,11 +374,14 @@ export const products: Product[] = [
       "wheat flour",
       "teer wheat flour",
     ],
+
     returnPolicy:
       "Sealed condition e product receive korar por return kora jabe.",
+
     monthlyBazar: true,
     discountProduct: false,
     suggestedProduct: true,
+
     searchTerms: [
       "teer atta",
       "atta",
@@ -357,9 +399,11 @@ export const products: Product[] = [
     section: "Monthly Bazar",
     productType: "Sugar",
     brand: "Local",
-    image: "/products/sugar.jpg",
-    images: ["/products/sugar.jpg"],
-    primaryImage: "/products/sugar.jpg",
+
+    image: "/sugar.jpg",
+    images: ["/sugar.jpg"],
+    primaryImage: "/sugar.jpg",
+
     price: 135,
     oldPrice: null,
     unit: "kg",
@@ -370,19 +414,24 @@ export const products: Product[] = [
     stock: 100,
     verified: true,
     status: "active",
+
     description:
       "Quality sugar suitable for tea, desserts and everyday household use.",
+
     keywords: [
       "sugar",
       "chini",
       "চিনি",
       "refined sugar",
     ],
+
     returnPolicy:
       "Sealed condition e product receive korar por return kora jabe.",
+
     monthlyBazar: true,
     discountProduct: false,
     suggestedProduct: true,
+
     searchTerms: [
       "sugar",
       "chini",
@@ -399,9 +448,11 @@ export const products: Product[] = [
     section: "Cooking Essentials",
     productType: "Salt",
     brand: "ACI",
-    image: "/products/aci-salt.jpg",
-    images: ["/products/aci-salt.jpg"],
-    primaryImage: "/products/aci-salt.jpg",
+
+    image: "/salt.jpg",
+    images: ["/salt.jpg"],
+    primaryImage: "/salt.jpg",
+
     price: 42,
     oldPrice: null,
     unit: "packet",
@@ -412,8 +463,10 @@ export const products: Product[] = [
     stock: 80,
     verified: true,
     status: "active",
+
     description:
       "ACI Salt is suitable for everyday household cooking and food preparation.",
+
     keywords: [
       "aci salt",
       "salt",
@@ -421,11 +474,14 @@ export const products: Product[] = [
       "aci",
       "table salt",
     ],
+
     returnPolicy:
       "Sealed condition e product receive korar por return kora jabe.",
+
     monthlyBazar: true,
     discountProduct: false,
     suggestedProduct: true,
+
     searchTerms: [
       "aci salt",
       "salt",
@@ -443,9 +499,11 @@ export const products: Product[] = [
     section: "Breakfast Essentials",
     productType: "Milk Powder",
     brand: "Marks",
-    image: "/products/marks-milk-powder.jpg",
-    images: ["/products/marks-milk-powder.jpg"],
-    primaryImage: "/products/marks-milk-powder.jpg",
+
+    image: "/milk-powder.jpg",
+    images: ["/milk-powder.jpg"],
+    primaryImage: "/milk-powder.jpg",
+
     price: 455,
     oldPrice: null,
     unit: "gram",
@@ -453,7 +511,16 @@ export const products: Product[] = [
     minQuantity: 10,
     defaultQuantity: 500,
     maxQuantity: 1000,
-    quantityOptions: [10, 75, 100, 250, 500, 1000],
+
+    quantityOptions: [
+      10,
+      75,
+      100,
+      250,
+      500,
+      1000,
+    ],
+
     quantityPrices: {
       10: 10,
       75: 70,
@@ -462,12 +529,16 @@ export const products: Product[] = [
       500: 455,
       1000: 910,
     },
+
     quantityOldPrices: {},
+
     stock: 50,
     verified: true,
     status: "active",
+
     description:
       "Marks Milk Powder is available in different pack sizes to suit different household needs.",
+
     keywords: [
       "marks milk powder",
       "milk powder",
@@ -475,11 +546,14 @@ export const products: Product[] = [
       "দুধের গুঁড়া",
       "marks",
     ],
+
     returnPolicy:
       "Sealed condition e product receive korar por return kora jabe.",
+
     monthlyBazar: false,
     discountProduct: false,
     suggestedProduct: true,
+
     searchTerms: [
       "marks milk powder",
       "milk powder",
@@ -497,9 +571,11 @@ export const products: Product[] = [
     section: "Breakfast Essentials",
     productType: "Tea",
     brand: "Seylon",
-    image: "/products/seylon-tea.jpg",
-    images: ["/products/seylon-tea.jpg"],
-    primaryImage: "/products/seylon-tea.jpg",
+
+    image: "/tea.jpg",
+    images: ["/tea.jpg"],
+    primaryImage: "/tea.jpg",
+
     price: 230,
     oldPrice: null,
     unit: "gram",
@@ -507,18 +583,28 @@ export const products: Product[] = [
     minQuantity: 100,
     defaultQuantity: 500,
     maxQuantity: 500,
-    quantityOptions: [100, 250, 500],
+
+    quantityOptions: [
+      100,
+      250,
+      500,
+    ],
+
     quantityPrices: {
       100: 60,
       250: 120,
       500: 230,
     },
+
     quantityOldPrices: {},
+
     stock: 50,
     verified: true,
     status: "active",
+
     description:
       "Seylon Tea is available in convenient sizes for everyday tea preparation.",
+
     keywords: [
       "seylon tea",
       "tea",
@@ -526,11 +612,14 @@ export const products: Product[] = [
       "black tea",
       "seylon",
     ],
+
     returnPolicy:
       "Sealed condition e product receive korar por return kora jabe.",
+
     monthlyBazar: true,
     discountProduct: false,
     suggestedProduct: true,
+
     searchTerms: [
       "seylon tea",
       "tea",
